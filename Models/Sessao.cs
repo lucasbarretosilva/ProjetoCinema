@@ -18,8 +18,13 @@ namespace ProjetoCinema.Models
         [Display(Name = "Sala")]
         public int SalaId { get; set; }
 
-        [Display(Name = "Horário")]
+        [Required(ErrorMessage ="Campo Obrigatório")]
+        [Display(Name = "Horário de Início")]
         public DateTime Horario { get; set; }
+
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [Display(Name = "Horário de Término")]
+        public DateTime HorarioFinal { get; set; }
 
         public virtual Filme Filme { get; set; }
 

@@ -54,6 +54,8 @@ namespace ProjetoCinema.Controllers
             ViewData["Filme"] = new SelectList(_context.Filme, "FilmeId", "FilmeNome");
 
 
+
+
             return View();
         }
 
