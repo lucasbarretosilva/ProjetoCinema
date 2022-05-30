@@ -4,37 +4,38 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Compra</h1>
+<h1 style="text-align: center; ">Compra</h1>
 
-<h4>Ingresso</h4>
+<h4 style="text-align: center; ">Ingresso</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form style=" width: 20vw; margin-left : 30vw;" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="SessaoId" class="control-label">Número da Sessão</label>
                 <select asp-for="SessaoId" class ="form-control" asp-items="ViewBag.SessaoId"></select>
 
-                 <label asp-for="SessaoId" class="control-label">Filme</label>
-                <select asp-for="SessaoId" class ="form-control" asp-items="ViewBag.Filme"></select>
+                
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="MeiaEntrada" /> @Html.DisplayNameFor(model => model.MeiaEntrada)
                 </label>
             </div>
+             <div class="form-group">
+                <label asp-for="Cpf" class="control-label"></label>
+                <input asp-for="Cpf" class="form-control" />
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Comprar" class="btn btn-primary" />
+                 <a asp-action="Index" class="btn btn-primary">Voltar</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+   
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

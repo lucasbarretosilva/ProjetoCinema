@@ -48,14 +48,7 @@ namespace ProjetoCinema.Controllers
         // GET: Compra/Create
         public IActionResult Create()
         {
-            //ViewData["SessaoId"] = new SelectList(_context.Sessao, "SessaoId", "SessaoId");
             ViewData["SessaoId"] = new SelectList(_context.Sessao, "SessaoId", "SessaoId");
-
-            ViewData["Filme"] = new SelectList(_context.Filme, "FilmeId", "FilmeNome");
-
-
-
-
             return View();
         }
 
@@ -64,7 +57,7 @@ namespace ProjetoCinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CompraId,SessaoId,MeiaEntrada")] Compra compra)
+        public async Task<IActionResult> Create([Bind("CompraId,SessaoId,MeiaEntrada,Cpf")] Compra compra)
         {
             if (ModelState.IsValid)
             {
@@ -98,7 +91,7 @@ namespace ProjetoCinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CompraId,SessaoId,MeiaEntrada")] Compra compra)
+        public async Task<IActionResult> Edit(int id, [Bind("CompraId,SessaoId,MeiaEntrada,Cpf")] Compra compra)
         {
             if (id != compra.CompraId)
             {

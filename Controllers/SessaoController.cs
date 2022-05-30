@@ -59,7 +59,7 @@ namespace ProjetoCinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("SessaoId,NumeroSessao,FilmeId,SalaId,Horario")] Sessao sessao)
+        public async Task<IActionResult> Create([Bind("SessaoId,NumeroSessao,FilmeId,SalaId,Horario,HorarioFinal")] Sessao sessao)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace ProjetoCinema.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FilmeId"] = new SelectList(_context.Filme, "FilmeId", "Descricao", sessao.FilmeId);
+            ViewData["FilmeId"] = new SelectList(_context.Filme, "FilmeId", "FilmeNome",sessao.FilmeId);
             ViewData["SalaId"] = new SelectList(_context.Sala, "SalaId", "SalaId", sessao.SalaId);
             return View(sessao);
         }
@@ -95,7 +95,7 @@ namespace ProjetoCinema.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("SessaoId,NumeroSessao,FilmeId,SalaId,Horario")] Sessao sessao)
+        public async Task<IActionResult> Edit(int id, [Bind("SessaoId,NumeroSessao,FilmeId,SalaId,Horario,HorarioFinal")] Sessao sessao)
         {
             if (id != sessao.SessaoId)
             {
@@ -122,7 +122,7 @@ namespace ProjetoCinema.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["FilmeId"] = new SelectList(_context.Filme, "FilmeId", "FilmeNome", sessao.FilmeId);
+            ViewData["FilmeId"] = new SelectList(_context.Filme, "FilmeId", "Descricao", sessao.FilmeId);
             ViewData["SalaId"] = new SelectList(_context.Sala, "SalaId", "SalaId", sessao.SalaId);
             return View(sessao);
         }

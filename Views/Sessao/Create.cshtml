@@ -4,13 +4,13 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1 style="text-align: center; ">Criando Sessão</h1>
 
-<h4>Sessao</h4>
+<h4 style="text-align: center; ">Sessão</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form style=" width: 50vw; margin-left : 15vw; " asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="NumeroSessao" class="control-label"></label>
@@ -18,7 +18,7 @@
                 <span asp-validation-for="NumeroSessao" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FilmeId" class="control-label"></label>
+              <label asp-for="FilmeId" class="control-label"></label>
                 <select asp-for="FilmeId" class ="form-control" asp-items="ViewBag.FilmeId"></select>
             </div>
             <div class="form-group">
@@ -31,14 +31,20 @@
                 <span asp-validation-for="Horario" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <label asp-for="HorarioFinal" class="control-label"></label>
+                <input asp-for="HorarioFinal" class="form-control" />
+                <span asp-validation-for="HorarioFinal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar Sessão" class="btn btn-primary" />
+                 <a asp-action="Index" class="btn btn-primary">Voltar</a>
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+   
 </div>
 
 @section Scripts {
