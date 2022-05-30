@@ -27,6 +27,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Sala)
             </th>
+             <th>
+                @Html.DisplayNameFor(model => model.Filme.Preco)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -47,6 +50,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Sala.SalaId)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Filme.Preco)
             </td>
             <td>
                 <a asp-action="Edit" class="btn btn-dark" asp-route-id="@item.SessaoId">Edit</a> |
